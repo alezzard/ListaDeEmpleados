@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ServicioEmpleadosService } from 'src/app/services/servicio-empleados.service';
+import { ServicioListaDeEmpleadosService } from 'src/app/services/servicio-lista-de-empleados.service';
 import { Empleado } from '../../empleado.model';
 
 @Component({
@@ -7,7 +9,9 @@ import { Empleado } from '../../empleado.model';
   styleUrls: ['./empleado.component.css']
 })
 export class EmpleadoComponent implements OnInit {
-
+  
+  constructor(private mensajeService:ServicioEmpleadosService) { }
+  
   nombre:string="";
   apellido:string="";
   cargo:string="";
@@ -19,11 +23,10 @@ export class EmpleadoComponent implements OnInit {
     let nuevoEmpleado= new Empleado(this.nombre,this.apellido,this.cargo,this.salario);
     this.empleadoEvent.emit(nuevoEmpleado);
     console.log(this.empleadoEvent);
-    alert("Nuevo Empleado creado!!");
+    this.mensajeService.mostrarMensaje(this.nombre+" "+this.apellido+" se registró con éxito!");
   }
 
 
-  constructor() { }
 
   ngOnInit(): void {
   }

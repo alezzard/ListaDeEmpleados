@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { Empleado } from './empleado.model';
-
-import {empleados} from './listaDeEmpleados';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +6,11 @@ import {empleados} from './listaDeEmpleados';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  titulo = 'Lista de Empleados';
+ 
+  
+  constructor(){}
 
-  lista=empleados;
 
-  agregarEmpleadoEvent(nuevoEmpleado:Empleado){
-    this.lista.push(nuevoEmpleado);
-  }
 }
+
+
