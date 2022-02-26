@@ -8,19 +8,17 @@ import { ServicioListaDeEmpleadosService } from '../../services/servicio-lista-d
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   titulo = 'Lista de Empleados';
 
   lista:Empleado[]=[];
   
   constructor(private miListaEmpleados:ServicioListaDeEmpleadosService){}
 
+  ngOnInit(): void {
+    this.lista=this.miListaEmpleados.listaDeEmpleados;
+  }
   agregarEmpleadoEvent(nuevoEmpleado:Empleado){
     this.miListaEmpleados.agregarEmpleadoService(nuevoEmpleado);
   }
 
-
-  ngOnInit(): void {
-    this.lista=this.miListaEmpleados.listaDeEmpleados;
-  }
 }

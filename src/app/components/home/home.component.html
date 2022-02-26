@@ -1,42 +1,17 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Proyectos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Quienes somos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ">contacto</a>
-          </li>
-        </ul>
+<div class="container">
+  <div class="col">{{titulo}}</div>
+  <app-empleado (empleadoEvent)="agregarEmpleadoEvent($event)"></app-empleado>
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let empleado of lista">
+        emplead@:
+        {{empleado.nombre}} {{empleado.apellido}}
+        cargo:
+        {{empleado.cargo}}
+        salario:
+        {{empleado.salario}}
       </div>
     </div>
-  </nav> -->
-  
-  
-  <div class="container">
-    <div class="col">{{titulo}}</div>
-    <app-empleado (empleadoEvent)="agregarEmpleadoEvent($event)"></app-empleado>
-    <div class="row">
-      <div class="col">
-        <div *ngFor="let empleado of lista">
-          emplead@:
-          {{empleado.nombre}} {{empleado.apellido}}
-          cargo:
-          {{empleado.cargo}}
-          salario:
-          {{empleado.salario}}
-        </div>
-      </div>
-    </div>
-    <br>
-  
-  
-   
   </div>
+  <br>
+</div>
