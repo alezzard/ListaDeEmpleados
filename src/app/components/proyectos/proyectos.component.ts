@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Empleado } from '../../empleado.model';
+import { ServicioListaDeEmpleadosService } from '../../services/servicio-lista-de-empleados.service';
+
 
 @Component({
   selector: 'app-proyectos',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectosComponent implements OnInit {
 
-  constructor() { }
+  titulo = 'Lista de Empleados';
+
+  lista:Empleado[]=[];
+  
+  constructor(private miListaEmpleados:ServicioListaDeEmpleadosService,private router:Router){}
 
   ngOnInit(): void {
+    this.lista=this.miListaEmpleados.listaDeEmpleados;
+  }
+  agregarEmpleadoEvent(nuevoEmpleado:Empleado){
+    this.miListaEmpleados.agregarEmpleadoService(nuevoEmpleado);
+    this.alInicio()
+  }
+
+  alInicio(){
+    this.router.navigate([""])
   }
 
 }

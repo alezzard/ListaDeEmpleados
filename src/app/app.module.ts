@@ -11,12 +11,14 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { RouterModule, Routes } from '@angular/router';
+import { EditarComponent } from './components/editar/editar.component';
 
 const appRoutes:Routes=[
   {path:"",component:HomeComponent},
   {path:"proyectos",component:ProyectosComponent},
-  {path:"Quienes Somos",component:QuienesSomosComponent},
-  {path:"Contacto",component:ContactoComponent}
+  {path:"quienes",component:QuienesSomosComponent},
+  {path:"contacto",component:ContactoComponent},
+  {path:"editar/:indice",component:EditarComponent}
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes:Routes=[
     HomeComponent,
     ProyectosComponent,
     QuienesSomosComponent,
-    ContactoComponent
+    ContactoComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

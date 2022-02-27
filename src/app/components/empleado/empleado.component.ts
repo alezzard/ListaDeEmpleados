@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ServicioEmpleadosService } from 'src/app/services/servicio-empleados.service';
-import { ServicioListaDeEmpleadosService } from 'src/app/services/servicio-lista-de-empleados.service';
+//import { ServicioListaDeEmpleadosService } from 'src/app/services/servicio-lista-de-empleados.service';
 import { Empleado } from '../../empleado.model';
 
 @Component({
@@ -10,15 +10,15 @@ import { Empleado } from '../../empleado.model';
 })
 export class EmpleadoComponent implements OnInit {
   
-  constructor(private mensajeService:ServicioEmpleadosService) { }
-  
   nombre:string="";
   apellido:string="";
   cargo:string="";
   salario:number=0;
-
+  
   @Output() empleadoEvent = new EventEmitter<Empleado>();
-
+  
+  constructor(private mensajeService:ServicioEmpleadosService) { }
+  
   nuevoEmpleado(){
     let nuevoEmpleado= new Empleado(this.nombre,this.apellido,this.cargo,this.salario);
     this.empleadoEvent.emit(nuevoEmpleado);

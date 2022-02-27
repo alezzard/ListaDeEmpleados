@@ -15,5 +15,11 @@ export class ServicioListaDeEmpleadosService {
     this.listaDeEmpleados.push(nuevoEmpleado);
   }
 
+  editarEmpleadoService(empleado:Empleado,indice:number){
+    this.listaDeEmpleados.splice(indice,1,empleado)
+  }
+
+  
+
   constructor() { }
 }

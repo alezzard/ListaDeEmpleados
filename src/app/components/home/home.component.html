@@ -3,9 +3,9 @@
   <app-empleado (empleadoEvent)="agregarEmpleadoEvent($event)"></app-empleado>
   <div class="row">
     <div class="col">
-      <div *ngFor="let empleado of lista">
-        emplead@:
-        {{empleado.nombre}} {{empleado.apellido}}
+      <div *ngFor="let empleado of lista,let indice=index">
+        emplead@: 
+        <a [routerLink]="['/editar',indice]">{{empleado.nombre}} {{empleado.apellido}}</a>
         cargo:
         {{empleado.cargo}}
         salario:

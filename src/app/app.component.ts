@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import { Empleado } from './empleado.model';
-import { ServicioListaDeEmpleadosService } from './services/servicio-lista-de-empleados.service';
-
-
-
-// import {empleados} from './listaDeEmpleados';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +8,11 @@ import { ServicioListaDeEmpleadosService } from './services/servicio-lista-de-em
 export class AppComponent {
   titulo = 'Lista de Empleados';
 
-  lista:Empleado[]=this.miListaEmpleados.listaDeEmpleados;
   
-  constructor(private miListaEmpleados:ServicioListaDeEmpleadosService){}
+  
+  constructor(){}
 
  
-
-  agregarEmpleadoEvent(nuevoEmpleado:Empleado){
-    this.miListaEmpleados.agregarEmpleadoService(nuevoEmpleado);
-  }
 
 }
 
