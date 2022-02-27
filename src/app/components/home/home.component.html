@@ -4,12 +4,18 @@
   <div class="row">
     <div class="col">
       <div *ngFor="let empleado of lista,let indice=index">
-        emplead@: 
-        <a [routerLink]="['/editar',indice]">{{empleado.nombre}} {{empleado.apellido}}</a>
+        emplead@: {{empleado.nombre}} {{empleado.apellido}}
         cargo:
         {{empleado.cargo}}
         salario:
         {{empleado.salario}}
+        
+          <a [routerLink]="['/editar',indice]" [queryParams]="{accion:'1'}">Editar</a>
+       
+       &nbsp;&nbsp;
+        
+          <a [routerLink]="['/editar',indice]" [queryParams]="{accion:'0'}">Eliminar</a>
+       
       </div>
     </div>
   </div>

@@ -9,6 +9,8 @@ import { ServicioListaDeEmpleadosService } from '../../services/servicio-lista-d
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
+  @Output() empleadoEvent = new EventEmitter<Empleado>();
+  
   nombre:string="";
   apellido:string="";
   cargo:string="";
@@ -17,16 +19,26 @@ export class EditarComponent implements OnInit {
   indice:number=this.route.snapshot.params["indice"];
 
   empleadoAEditar:Empleado=this.lista.listaDeEmpleados[this.indice]
-  
-  @Output() empleadoEvent = new EventEmitter<Empleado>();
+
+  accion:number=this.route.snapshot.queryParams["accion"];
 
   constructor(private lista:ServicioListaDeEmpleadosService,private router:Router,private route:ActivatedRoute) { }
 
   editarEmpleado(){
-    let empleadoEditado= new Empleado(this.nombre,this.apellido,this.cargo,this.salario)
-    this.lista.editarEmpleadoService(empleadoEditado,this.indice);
-    this.router.navigate([""])
+    if (this.accion==1){
+      let empleadoEditado= new Empleado(this.nombre,this.apellido,this.cargo,this.salario)
+      this.lista.editarEmpleadoService(empleadoEditado,this.indice);
+      this.router.navigate([""])
+    }else{
+      this.lista.eliminarEmpleadoService(this.indice);
+      this.router.navigate([""])  
+    }
   }
+  /* eliminarEmpleado(){
+    this.lista.eliminarEmpleadoService(this.indice);
+    this.router.navigate([""])
+  } */
+
 
   ngOnInit(): void {
     
@@ -34,7 +46,6 @@ export class EditarComponent implements OnInit {
     this.apellido=this.empleadoAEditar.apellido;
     this.cargo=this.empleadoAEditar.cargo;
     this.salario=this.empleadoAEditar.salario;
-    alert("indice"+this.indice);
   }
 
 }

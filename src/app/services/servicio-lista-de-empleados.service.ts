@@ -18,8 +18,11 @@ export class ServicioListaDeEmpleadosService {
   editarEmpleadoService(empleado:Empleado,indice:number){
     this.listaDeEmpleados.splice(indice,1,empleado)
   }
+  eliminarEmpleadoService(indice:number){
+    this.listaDeEmpleados.splice(indice,1)
+  }
 
-  
+
 
   constructor() { }
 }
